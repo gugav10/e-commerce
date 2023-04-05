@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/gateway/src",
+  "monorepo": true,
+  "root": "apps/gateway",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/gateway/tsconfig.app.json"
+  },
+  "projects": {
+    "auth": {
+      "type": "application",
+      "root": "apps/auth",
+      "entryFile": "main",
+      "sourceRoot": "apps/auth/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/auth/tsconfig.app.json"
+      }
+    },
+    "gateway": {
+      "type": "application",
+      "root": "apps/gateway",
+      "entryFile": "main",
+      "sourceRoot": "apps/gateway/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/gateway/tsconfig.app.json"
+      }
+    },
+    "products": {
+      "type": "application",
+      "root": "apps/products",
+      "entryFile": "main",
+      "sourceRoot": "apps/products/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/products/tsconfig.app.json"
+      }
+    },
+    "orders": {
+      "type": "application",
+      "root": "apps/orders",
+      "entryFile": "main",
+      "sourceRoot": "apps/orders/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/orders/tsconfig.app.json"
+      }
+    },
+    "delivery": {
+      "type": "application",
+      "root": "apps/delivery",
+      "entryFile": "main",
+      "sourceRoot": "apps/delivery/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/delivery/tsconfig.app.json"
+      }
+    },
+    "merchants": {
+      "type": "application",
+      "root": "apps/merchants",
+      "entryFile": "main",
+      "sourceRoot": "apps/merchants/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/merchants/tsconfig.app.json"
+      }
+    },
+    "users": {
+      "type": "application",
+      "root": "apps/users",
+      "entryFile": "main",
+      "sourceRoot": "apps/users/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/users/tsconfig.app.json"
+      }
+    },
+    "auth-lib": {
+      "type": "library",
+      "root": "libs/auth-lib",
+      "entryFile": "index",
+      "sourceRoot": "libs/auth-lib/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/auth-lib/tsconfig.lib.json"
+      }
+    },
+    "database": {
+      "type": "library",
+      "root": "libs/database",
+      "entryFile": "index",
+      "sourceRoot": "libs/database/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/database/tsconfig.lib.json"
+      }
+    },
+    "gateway-lib": {
+      "type": "library",
+      "root": "libs/gateway-lib",
+      "entryFile": "index",
+      "sourceRoot": "libs/gateway-lib/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/gateway-lib/tsconfig.lib.json"
+      }
+    }
+  }
+}

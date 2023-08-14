@@ -54,24 +54,6 @@
         "tsConfigPath": "apps/delivery/tsconfig.app.json"
       }
     },
-    "merchants": {
-      "type": "application",
-      "root": "apps/merchants",
-      "entryFile": "main",
-      "sourceRoot": "apps/merchants/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/merchants/tsconfig.app.json"
-      }
-    },
-    "users": {
-      "type": "application",
-      "root": "apps/users",
-      "entryFile": "main",
-      "sourceRoot": "apps/users/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/users/tsconfig.app.json"
-      }
-    },
     "auth-lib": {
       "type": "library",
       "root": "libs/auth-lib",
@@ -81,15 +63,6 @@
         "tsConfigPath": "libs/auth-lib/tsconfig.lib.json"
       }
     },
-    "database": {
-      "type": "library",
-      "root": "libs/database",
-      "entryFile": "index",
-      "sourceRoot": "libs/database/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/database/tsconfig.lib.json"
-      }
-    },
     "gateway-lib": {
       "type": "library",
       "root": "libs/gateway-lib",
@@ -97,6 +70,168 @@
       "sourceRoot": "libs/gateway-lib/src",
       "compilerOptions": {
         "tsConfigPath": "libs/gateway-lib/tsconfig.lib.json"
+      }
+    },
+    "messaging": {
+      "type": "library",
+      "root": "libs/messaging",
+      "entryFile": "index",
+      "sourceRoot": "libs/messaging/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/messaging/tsconfig.lib.json"
+      }
+    },
+    "users": {
+      "type": "library",
+      "root": "libs/users",
+      "entryFile": "index",
+      "sourceRoot": "libs/users/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/users/tsconfig.lib.json"
+      }
+    },
+    "common": {
+      "type": "library",
+      "root": "libs/common",
+      "entryFile": "index",
+      "sourceRoot": "libs/common/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/common/tsconfig.lib.json"
+      }
+    },
+    "health-check": {
+      "type": "library",
+      "root": "libs/health-check",
+      "entryFile": "index",
+      "sourceRoot": "libs/health-check/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/health-check/tsconfig.lib.json"
+      }
+    },
+    "tokens": {
+      "type": "library",
+      "root": "libs/tokens",
+      "entryFile": "index",
+      "sourceRoot": "libs/tokens/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/tokens/tsconfig.lib.json"
+      }
+    },
+    "password": {
+      "type": "library",
+      "root": "libs/password",
+      "entryFile": "index",
+      "sourceRoot": "libs/password/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/password/tsconfig.lib.json"
+      }
+    },
+    "customers": {
+      "type": "library",
+      "root": "libs/customers",
+      "entryFile": "index",
+      "sourceRoot": "libs/customers/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/customers/tsconfig.lib.json"
+      }
+    },
+    "merchants": {
+      "type": "library",
+      "root": "libs/merchants",
+      "entryFile": "index",
+      "sourceRoot": "libs/merchants/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/merchants/tsconfig.lib.json"
+      }
+    },
+    "products-lib": {
+      "type": "library",
+      "root": "libs/products-lib",
+      "entryFile": "index",
+      "sourceRoot": "libs/products-lib/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/products-lib/tsconfig.lib.json"
+      }
+    },
+    "auth-rpc": {
+      "type": "library",
+      "root": "libs/auth-rpc",
+      "entryFile": "index",
+      "sourceRoot": "libs/auth-rpc/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/auth-rpc/tsconfig.lib.json"
+      }
+    },
+    "stocks": {
+      "type": "application",
+      "root": "apps/stocks",
+      "entryFile": "main",
+      "sourceRoot": "apps/stocks/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/stocks/tsconfig.app.json"
+      }
+    },
+    "warehouse-stocks": {
+      "type": "library",
+      "root": "libs/warehouse-stocks",
+      "entryFile": "index",
+      "sourceRoot": "libs/warehouse-stocks/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/warehouse-stocks/tsconfig.lib.json"
+      }
+    },
+    "cities": {
+      "type": "library",
+      "root": "libs/cities",
+      "entryFile": "index",
+      "sourceRoot": "libs/cities/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/cities/tsconfig.lib.json"
+      }
+    },
+    "locations": {
+      "type": "library",
+      "root": "libs/locations",
+      "entryFile": "index",
+      "sourceRoot": "libs/locations/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/locations/tsconfig.lib.json"
+      }
+    },
+    "warehouses": {
+      "type": "library",
+      "root": "libs/warehouses",
+      "entryFile": "index",
+      "sourceRoot": "libs/warehouses/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/warehouses/tsconfig.lib.json"
+      }
+    },
+    "stocks-lib": {
+      "type": "library",
+      "root": "libs/stocks-lib",
+      "entryFile": "index",
+      "sourceRoot": "libs/stocks-lib/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/stocks-lib/tsconfig.lib.json"
+      }
+    },
+    "orders-lib": {
+      "type": "library",
+      "root": "libs/orders-lib",
+      "entryFile": "index",
+      "sourceRoot": "libs/orders-lib/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/orders-lib/tsconfig.lib.json"
+      }
+    },
+    "delivery-lib": {
+      "type": "library",
+      "root": "libs/delivery-lib",
+      "entryFile": "index",
+      "sourceRoot": "libs/delivery-lib/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/delivery-lib/tsconfig.lib.json"
       }
     }
   }

@@ -3,25 +3,28 @@ import { ApolloGatewayDriver, ApolloGatewayDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
-import { GatewayLibService } from './gateway-lib.service';
 import { GraphQLError, GraphQLFormattedError } from 'graphql';
+import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 
 @Module({
   imports: [
     GraphQLModule.forRootAsync<ApolloGatewayDriverConfig>({
       driver: ApolloGatewayDriver,
-      // imports: [AuthRpcModule],
       useFactory: (configService: ConfigService) => ({
         server: {
-          formatError: (error: GraphQLError): any => {
+          formatError: (formattedError: GraphQLError): any => {
             const graphQLFormattedError: GraphQLFormattedError = {
-              message: error.message,
+              message: formattedError.message,
+              path: formattedError.path,
               extensions: {
-                code: error.extensions?.code,
+                code: formattedError.extensions?.code,
+                status: formattedError.extensions?.status,
+                errors: formattedError.extensions?.errors,
               },
             };
             return graphQLFormattedError;
           },
+          plugins: [ApolloServerPluginLandingPageLocalDefault()],
           playground: false,
           cors: true,
           context: function ({ req }) {
@@ -49,22 +52,22 @@ import { GraphQLError, GraphQLFormattedError } from 'graphql';
           },
           supergraphSdl: new IntrospectAndCompose({
             subgraphs: [
-              // {
-              //   name: 'auth',
-              //   url: configService.get<string>('AUTH_SUBGRAPH_URL'),
-              // },
-              // {
-              //   name: 'notifications',
-              //   url: configService.get<string>('NOTIFICATIONS_SUBGRAPH_URL'),
-              // },
-              // {
-              //   name: 'products',
-              //   url: configService.get<string>('PRODUCTS_SUBGRAPH_URL'),
-              // },
-              // {
-              //   name: 'targets',
-              //   url: configService.get<string>('TARGETS_SUBGRAPH_URL'),
-              // },
+              {
+                name: 'auth',
+                url: configService.get<string>('AUTH_SUBGRAPH_URL'),
+              },
+              {
+                name: 'products',
+                url: configService.get<string>('PRODUCTS_SUBGRAPH_URL'),
+              },
+              {
+                name: 'stocks',
+                url: configService.get<string>('STOCKS_SUBGRAPH_URL'),
+              },
+              {
+                name: 'orders',
+                url: configService.get<string>('ORDERS_SUBGRAPH_URL'),
+              },
             ],
           }),
         },
@@ -72,7 +75,5 @@ import { GraphQLError, GraphQLFormattedError } from 'graphql';
       inject: [ConfigService],
     }),
   ],
-  providers: [GatewayLibService],
-  exports: [GatewayLibService],
 })
 export class GatewayLibModule {}

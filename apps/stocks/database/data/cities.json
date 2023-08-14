@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Tbilisi"
+  },
+  {
+    "id": 2,
+    "title": "Batumi"
+  },
+  {
+    "id": 3,
+    "title": "Kutaisi"
+  },
+  {
+    "id": 4,
+    "title": "Rustavi"
+  },
+  {
+    "id": 5,
+    "title": "Gori"
+  },
+  {
+    "id": 6,
+    "title": "Zugdidi"
+  },
+  {
+    "id": 7,
+    "title": "Poti"
+  },
+  {
+    "id": 8,
+    "title": "Telavi"
+  },
+  {
+    "id": 9,
+    "title": "Samtredia"
+  },
+  {
+    "id": 10,
+    "title": "Khashuri"
+  },
+  {
+    "id": 11,
+    "title": "Senaki"
+  },
+  {
+    "id": 12,
+    "title": "Marneuli"
+  },
+  {
+    "id": 13,
+    "title": "Akhaltsikhe"
+  },
+  {
+    "id": 14,
+    "title": "Zestafoni"
+  },
+  {
+    "id": 15,
+    "title": "Tsalka"
+  },
+  {
+    "id": 16,
+    "title": "Kobuleti"
+  },
+  {
+    "id": 17,
+    "title": "Chiatura"
+  },
+  {
+    "id": 18,
+    "title": "Kaspi"
+  },
+  {
+    "id": 19,
+    "title": "Kareli"
+  },
+  {
+    "id": 20,
+    "title": "Mtskheta"
+  }
+]

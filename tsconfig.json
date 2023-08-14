@@ -24,17 +24,107 @@
       "@app/auth-lib/*": [
         "libs/auth-lib/src/*"
       ],
-      "@app/database": [
-        "libs/database/src"
-      ],
-      "@app/database/*": [
-        "libs/database/src/*"
-      ],
       "@app/gateway-lib": [
         "libs/gateway-lib/src"
       ],
       "@app/gateway-lib/*": [
         "libs/gateway-lib/src/*"
+      ],
+      "@app/users": [
+        "libs/users/src"
+      ],
+      "@app/users/*": [
+        "libs/users/src/*"
+      ],
+      "@app/common": [
+        "libs/common/src"
+      ],
+      "@app/common/*": [
+        "libs/common/src/*"
+      ],
+      "@app/health-check": [
+        "libs/health-check/src"
+      ],
+      "@app/health-check/*": [
+        "libs/health-check/src/*"
+      ],
+      "@app/tokens": [
+        "libs/tokens/src"
+      ],
+      "@app/tokens/*": [
+        "libs/tokens/src/*"
+      ],
+      "@app/password": [
+        "libs/password/src"
+      ],
+      "@app/password/*": [
+        "libs/password/src/*"
+      ],
+      "@app/customers": [
+        "libs/customers/src"
+      ],
+      "@app/customers/*": [
+        "libs/customers/src/*"
+      ],
+      "@app/merchants": [
+        "libs/merchants/src"
+      ],
+      "@app/merchants/*": [
+        "libs/merchants/src/*"
+      ],
+      "@app/products-lib": [
+        "libs/products-lib/src"
+      ],
+      "@app/products-lib/*": [
+        "libs/products-lib/src/*"
+      ],
+      "@app/auth-rpc": [
+        "libs/auth-rpc/src"
+      ],
+      "@app/auth-rpc/*": [
+        "libs/auth-rpc/src/*"
+      ],
+      "@app/warehouse-stocks": [
+        "libs/warehouse-stocks/src"
+      ],
+      "@app/warehouse-stocks/*": [
+        "libs/warehouse-stocks/src/*"
+      ],
+      "@app/cities": [
+        "libs/cities/src"
+      ],
+      "@app/cities/*": [
+        "libs/cities/src/*"
+      ],
+      "@app/locations": [
+        "libs/locations/src"
+      ],
+      "@app/locations/*": [
+        "libs/locations/src/*"
+      ],
+      "@app/warehouses": [
+        "libs/warehouses/src"
+      ],
+      "@app/warehouses/*": [
+        "libs/warehouses/src/*"
+      ],
+      "@app/stocks-lib": [
+        "libs/stocks-lib/src"
+      ],
+      "@app/stocks-lib/*": [
+        "libs/stocks-lib/src/*"
+      ],
+      "@app/orders-lib": [
+        "libs/orders-lib/src"
+      ],
+      "@app/orders-lib/*": [
+        "libs/orders-lib/src/*"
+      ],
+      "@app/delivery-lib": [
+        "libs/delivery-lib/src"
+      ],
+      "@app/delivery-lib/*": [
+        "libs/delivery-lib/src/*"
       ]
     }
   }

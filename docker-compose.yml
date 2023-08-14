@@ -1,0 +1,159 @@
+version: '3'
+
+services:
+  # APP
+  auth:
+    build:
+      context: .
+      dockerfile: ./apps/auth/Dockerfile
+      target: development
+    command: /start.sh auth development
+    env_file:
+      - ./apps/auth/.env.development
+      - ./apps/auth/.env
+    depends_on:
+      - postgres_auth
+      - redis
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 3001:3000
+  gateway:
+    build:
+      context: .
+      dockerfile: ./apps/gateway/Dockerfile
+      target: development
+    command: /wait-for-it.sh --host=orders --port=3000 --strict --timeout=100 -- npm run start:dev gateway
+    ports:
+      - 3000:3000
+    env_file:
+      - ./apps/gateway/.env.development
+      - ./apps/gateway/.env
+    depends_on:
+      - auth
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+  products:
+    build:
+      context: .
+      dockerfile: ./apps/products/Dockerfile
+      target: development
+    command: /wait-for-it.sh --host=stocks --port=3000 --strict --timeout=100 -- /start.sh products development
+    ports:
+      - 3002:3000
+    env_file:
+      - ./apps/products/.env.development
+      - ./apps/products/.env
+    depends_on:
+      - stocks
+      - postgres_products
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+  stocks:
+    build:
+      context: .
+      dockerfile: ./apps/stocks/Dockerfile
+      target: development
+    command: /wait-for-it.sh --host=auth --port=3000 --strict --timeout=100 -- /start.sh stocks development
+    ports:
+      - 3003:3000
+    env_file:
+      - ./apps/stocks/.env.development
+      - ./apps/stocks/.env
+    depends_on:
+      - auth
+      - postgres_stocks
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+  orders:
+    build:
+      context: .
+      dockerfile: ./apps/orders/Dockerfile
+      target: development
+    command: /wait-for-it.sh --host=products --port=3000 --strict --timeout=100 -- /start.sh orders development
+    ports:
+      - 3004:3000
+    env_file:
+      - ./apps/orders/.env.development
+      - ./apps/orders/.env
+    depends_on:
+      - auth
+      - products
+      - postgres_stocks
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+
+  # PSQL
+  postgres_auth:
+    image: postgres
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_USER: ec
+      POSTGRES_DB: ec_auth
+      POSTGRES_PASSWORD: dbpassword
+    volumes:
+      - postgres_auth:/var/lib/postgresql/data
+  postgres_products:
+    image: postgres
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: ec
+      POSTGRES_DB: ec_products
+      POSTGRES_PASSWORD: dbpassword
+    volumes:
+      - postgres_products:/var/lib/postgresql/data
+  postgres_stocks:
+    image: postgres
+    ports:
+      - 5435:5432
+    environment:
+      POSTGRES_USER: ec
+      POSTGRES_DB: ec_stocks
+      POSTGRES_PASSWORD: dbpassword
+    volumes:
+      - postgres_stocks:/var/lib/postgresql/data
+  postgres_orders:
+    image: postgres
+    ports:
+      - 5436:5432
+    environment:
+      POSTGRES_USER: ec
+      POSTGRES_DB: ec_orders
+      POSTGRES_PASSWORD: dbpassword
+    volumes:
+      - postgres_orders:/var/lib/postgresql/data
+
+  # REDIS
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - redis:/data
+
+  # NATS
+  nats:
+    image: nats
+    ports:
+      - '4222:4222'
+      - '8222:8222'
+  jetstream:
+    image: nats
+    command: ['--jetstream']
+    ports:
+      - '4223:4223'
+      - '8223:8223'
+
+volumes:
+  postgres_auth:
+  postgres_products:
+  postgres_stocks:
+  postgres_orders:
+  redis:
